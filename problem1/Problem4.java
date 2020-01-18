@@ -43,7 +43,7 @@ class Designation{
 	
 }
 
-public class HelloWorld {
+public class Problem4 {
 	public static void main(String args[]){
 		Designation ds1 = new Designation("SDE1","2018");
 		Designation ds2 = new Designation("SDE2","2019");
