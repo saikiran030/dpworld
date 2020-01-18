@@ -41,6 +41,12 @@ class ShipDetails{
 	public int getDay_of_week() {
 		return day_of_week;
 	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getStatus() {
+		return status;
+	}
 	
 }
 public class ShimpmentBundleProblem5 {
@@ -84,7 +90,10 @@ public class ShimpmentBundleProblem5 {
             return; 
 		Queue<ShipDetails> q =new LinkedList<>();
 		//add all ship details of specific day
-		q.addAll(map.get(0));
+		for(int i=1;i<=map.size();i++){
+			q.addAll(map.get(i));
+		}
+		
 		while(true) 
         {
 			int nodeCount = q.size(); 
@@ -92,16 +101,26 @@ public class ShimpmentBundleProblem5 {
                 break;
             while(nodeCount > 0) 
             { 
-            	ShipDetails sd = q.peek(); 
-            	//verify whether exists in next two level ... if yes continue hirerchy and check boolean
-                //if(exists)
-            	sd.status =1;
-            	q.remove();
-            	//traverse sd status and add till u get 
-                if(sd.status != 1) 
-                    q.add(sd); 
+            	
+            	ShipDetails sd = q.peek();
+            	if(sd.getStatus() == 1){
+            		q.remove();
+            		break;
+            	}
+            	sd.setStatus(1);
+            	System.out.print(sd.getShip_id()+" ");
+            	for(int i=1;i<q.size();i++){
+            		if(q.get(i).getDay_of_week()-sd.getDay_of_week()>2){
+            			break;
+            		}
+            		if(sd.getStart_city() == q.get(i).getEnd_city()) {
+            			q.get(i).setStatus(1);
+            			System.out.print(q.get(i).getShip_id()+" ");
+            		}
+            	}
                 nodeCount--; 
             }
+            System.out.println();
         }
 	}
 
