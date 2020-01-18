@@ -1,4 +1,3 @@
-package com.problem.five;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -59,7 +58,7 @@ public class ShimpmentBundleProblem5 {
 		// TODO Auto-generated method stub
 		BufferedReader reader;
 		try {
-			LinkedList<String> al=new LinkedList<String>();  
+			LinkedList<ShipDetails> al=new LinkedList<ShipDetails>();  
 			HashMap<Integer, LinkedList> map = new HashMap<>(); 
 			reader = new BufferedReader(new FileReader(
 					"shipmentFile.txt"));
@@ -83,12 +82,12 @@ public class ShimpmentBundleProblem5 {
 		}
 	}
 
-	static void findBundles(HashMap<String, LinkedList> map) {
+	static void findBundles(HashMap<Integer, LinkedList> map) {
 		// TODO Auto-generated method stub
 		//BFS///Level order traversel
 		if(map == null) 
             return; 
-		Queue<ShipDetails> q =new LinkedList<>();
+		LinkedList<ShipDetails> q =new LinkedList<>();
 		//add all ship details of specific day
 		for(int i=1;i<=map.size();i++){
 			q.addAll(map.get(i));
