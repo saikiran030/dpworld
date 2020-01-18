@@ -52,6 +52,7 @@ public class HelloWorld {
 		dh.add(ds2);
 		Employee ee = new Employee("Sai",dh);
 		LinkedList<Employee> ed= new LinkedList();
+		ed.add(ee);
 		EmployeeHistory eh = new EmployeeHistory(ed);
 		getEmployeeHistory(eh);
 	}
