@@ -84,9 +84,6 @@ public class ShimpmentBundleProblem5 {
 
 	static void findBundles(HashMap<Integer, LinkedList> map) {
 		// TODO Auto-generated method stub
-		//BFS///Level order traversel
-		if(map == null) 
-            return; 
 		LinkedList<ShipDetails> q =new LinkedList<>();
 		//add all ship details of specific day
 		for(int i=1;i<=map.size();i++){
